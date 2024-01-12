@@ -2,7 +2,7 @@
 Taller grupal.
 
 Authors: 
-Brian Córdoba 
-Darleida Prada
-Juan Riaño
+Brian Córdoba, 
+Darleida Prada,
+Juan Riaño.
 
