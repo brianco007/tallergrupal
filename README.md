@@ -1,4 +1,8 @@
 # tallergrupal
 Taller grupal.
-Brian Alexander Córdoba Mingán 
+
+Authors: 
+Brian Córdoba 
+Darleida Prada
+Juan Riaño
 
