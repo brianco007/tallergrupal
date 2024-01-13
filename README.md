@@ -1,6 +1,6 @@
 # tallergrupal
 ---
-## EQUIPO DINAMITA
+## 🧨EQUIPO DINAMITA🧨
 
 Authors: 
 Brian Córdoba, 
