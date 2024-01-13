@@ -1,5 +1,6 @@
 # tallergrupal
-Taller grupal.
+---
+## EQUIPO DINAMITA
 
 Authors: 
 Brian Córdoba, 
