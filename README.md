@@ -7,5 +7,5 @@ Brian Córdoba,
 Darleida Prada,
 Juan Riaño.
 
-Línea escrita por Brian
+Línea escrita por Brian Córdoba
 
