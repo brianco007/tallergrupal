@@ -1,3 +1,16 @@
 body{
-    background-color: red;
+    background-color: #ececec;
 }
+
+main{
+    display: flex;
+    flex-direction: column;
+}
+
+#createBtn{
+    align-self: baseline;
+}
+
+/* #group ul{
+    margin-bottom: 20px;
+} */
