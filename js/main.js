@@ -4,26 +4,9 @@ const nombresArray = []; // Array para almacenar los nombres
 document.getElementById('groupsNumber').addEventListener('change', function (event) {
     groupsNumber = parseInt(event.target.value, 10);
 });
-<<<<<<< HEAD
-$createBtn.addEventListener('click', () => {
-    const participantsPerGroup = membersArray.length / parseInt($groupsNumber.value);
-    let groupToRender = "";
-    for (let i = 0; i < Math.floor(parseInt($groupsNumber.value)); i++) {
-        let ulElement = document.createElement('ul');
-        ulElement.textContent = `Group #${i + 1}`;
-        for (let i = 0; i < participantsPerGroup; i++) {
-            const randomNumber = Math.floor(Math.random() * membersArray.length);
-            let liElement = document.createElement('li');
-            liElement.textContent = membersArray[randomNumber];
-            ulElement.appendChild(liElement);
-            membersArray.splice(randomNumber, 1);
-        }
-        $groups.appendChild(ulElement);
-=======
 document.getElementById('memberName').addEventListener('keyup', function (event) {
     if (event.key === 'Enter') {
         agregarNombre();
->>>>>>> 170359f3683687def91b0860855c4961b2a68e4e
     }
 });
 function agregarNombre() {
@@ -47,7 +30,7 @@ function mostrarNombres() {
         nombreElement.textContent = nombre;
         const borrarNombreElement = document.createElement('span');
         borrarNombreElement.className = 'borrar-nombre';
-        borrarNombreElement.textContent = 'x';
+        borrarNombreElement.textContent = '';
         borrarNombreElement.addEventListener('click', () => eliminarNombre(index));
         nombreContainer.appendChild(nombreElement);
         nombreContainer.appendChild(borrarNombreElement);

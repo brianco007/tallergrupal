@@ -1,6 +1,7 @@
 let groupsNumber: number = 1;
 const nombresArray: string[] = []; // Array para almacenar los nombres
 
+
 document.getElementById('groupsNumber').addEventListener('change', function(event) {
   groupsNumber = parseInt((event.target as HTMLInputElement).value, 10);
 });
@@ -24,7 +25,7 @@ function agregarNombre() {
 }
 
 function mostrarNombres() {
-    const nombresContainer = document.getElementById('nombresContainer');
+    const nombresContainer = document.getElementById('nombresContainer') as HTMLElement;
     nombresContainer.innerHTML = "";
 
     nombresArray.forEach((nombre, index) => {
@@ -37,7 +38,7 @@ function mostrarNombres() {
 
         const borrarNombreElement = document.createElement('span');
         borrarNombreElement.className = 'borrar-nombre';
-        borrarNombreElement.textContent = 'x';
+        borrarNombreElement.textContent = '';
         borrarNombreElement.addEventListener('click', () => eliminarNombre(index));
 
         nombreContainer.appendChild(nombreElement);
