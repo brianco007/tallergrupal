@@ -27,15 +27,19 @@ $addBtn.addEventListener('click', ()=>{
 
 $createBtn.addEventListener('click', ()=>{
   const participantsPerGroup: number = membersArray.length / parseInt($groupsNumber.value)
+
   
   let groupToRender: string = ""
-  // for(let i = 0; i < Math.floor(parseInt($groupsNumber.value)); i++){
-    
+  for(let i = 0; i < Math.floor(parseInt($groupsNumber.value)); i++){
+    let ulElement: HTMLElement = document.createElement('ul');
+    ulElement.textContent = `Group #${i+1}`
     for(let i=0; i<participantsPerGroup; i++ ){
       const randomNumber: number = Math.floor(Math.random() * membersArray.length)
-      groupToRender += `<li>${membersArray[randomNumber]}</li>`
+      let liElement: HTMLElement = document.createElement('li');
+      liElement.textContent = membersArray[randomNumber]
+      ulElement.appendChild(liElement);
       membersArray.splice(randomNumber, 1)
     }
-    $groups.innerHTML = groupToRender
-  // }
+    $groups.appendChild(ulElement);
+  }
 })

@@ -22,12 +22,16 @@ $addBtn.addEventListener('click', () => {
 $createBtn.addEventListener('click', () => {
     const participantsPerGroup = membersArray.length / parseInt($groupsNumber.value);
     let groupToRender = "";
-    // for(let i = 0; i < Math.floor(parseInt($groupsNumber.value)); i++){
-    for (let i = 0; i < participantsPerGroup; i++) {
-        const randomNumber = Math.floor(Math.random() * membersArray.length);
-        groupToRender += `<li>${membersArray[randomNumber]}</li>`;
-        membersArray.splice(randomNumber, 1);
+    for (let i = 0; i < Math.floor(parseInt($groupsNumber.value)); i++) {
+        let ulElement = document.createElement('ul');
+        ulElement.textContent = `Group #${i + 1}`;
+        for (let i = 0; i < participantsPerGroup; i++) {
+            const randomNumber = Math.floor(Math.random() * membersArray.length);
+            let liElement = document.createElement('li');
+            liElement.textContent = membersArray[randomNumber];
+            ulElement.appendChild(liElement);
+            membersArray.splice(randomNumber, 1);
+        }
+        $groups.appendChild(ulElement);
     }
-    $groups.innerHTML = groupToRender;
-    // }
 });
