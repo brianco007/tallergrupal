@@ -11,24 +11,19 @@
     <header></header>
     <main>
         <div class="members">
-            <label for="memberName">Name of a member: </label>
+            <label for="memberName">Ingrese los nombres (presione Enter para agregar):</label>
             <input type="text" id="memberName">
-            <button id="addBtn"> Add member + </button>
         </div>
         
         <div class="groups">
             <label for="groupsNumber">Number of groups: </label>
-            <input type="number" id="groupsNumber"> 
+            <input type="number" id="groupsNumber" min="1" value="1">
         </div>
 
-        <button id="createBtn"> CREATE GROUPS </button>
+        <button onclick="generarGrupos()">Generar Grupos</button>
         
-        <div>
-            <ol id="listOfMembers">
-            </ol>
-        </div>
-        
-        <div id="groups">
+        <div id="nombresContainer"></div>
+        <div id="resultadoGrupos"></div>
 
         </div>
 
