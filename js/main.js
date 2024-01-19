@@ -2,6 +2,7 @@
 let groupsNumber = 1;
 const nombresArray = []; // Array para almacenar los nombres
 const totalGrupos = document.getElementById("totalGrupos");
+const mensajeAlerta = document.getElementById("mensajeAlerta");
 document.getElementById('groupsNumber').addEventListener('change', function (event) {
     groupsNumber = parseInt(event.target.value, 10);
 });
@@ -19,6 +20,13 @@ function agregarNombre() {
         mostrarNombres();
         console.log(nombresArray.length);
     }
+    if (nombre === "") {
+        mensajeAlerta.style.display = 'block';
+        mensajeAlerta.textContent = "⚠️ Por favor, ingrese por lo menos un nombre.";
+        setTimeout(() => {
+            mensajeAlerta.style.display = 'none';
+        }, 2000);
+    }
 }
 function mostrarNombres() {
     const nombresContainer = document.getElementById('nombresContainer');
@@ -28,7 +36,7 @@ function mostrarNombres() {
         nombreContainer.className = 'nombre-container';
         const nombreElement = document.createElement('span');
         nombreElement.className = 'nombre';
-        nombreElement.textContent = nombre;
+        nombreElement.textContent = nombre.toUpperCase()[0] + nombre.substring(1).toLowerCase();
         const borrarNombreElement = document.createElement('span');
         borrarNombreElement.className = 'borrar-nombre';
         borrarNombreElement.textContent = ', ';
@@ -46,8 +54,13 @@ function generarGrupos() {
     console.log(nombresArray);
     // Verificar si hay suficientes personas para formar los grupos
     if (nombresArray.length < groupsNumber) {
-        throw new Error("No hay suficientes personas para formar la cantidad de grupos especificada");
+        mensajeAlerta.style.display = 'block';
+        mensajeAlerta.textContent = "⚠️ No hay suficientes participantes para formar la cantidad de grupos especificada.";
+        setTimeout(() => {
+            mensajeAlerta.style.display = 'none';
+        }, 2000);
     }
+    //   resetear input de cantidad de grupos al hacer click PENDIENTE
     // Copiar el array de nombres para no modificar el original
     const nombresCopiados = [...nombresArray];
     // Inicializar los grupos como arrays vacíos
