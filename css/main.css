@@ -17,9 +17,11 @@ body{
     background-image: url("../img/blob.png");
     background-repeat: no-repeat;
     background-position: center;
+    background-size: cover;
     color: #1c1f26;
     font-size: 18px;
     font-family:'Roboto', sans-serif;
+    margin: 50px 0;
 }
 
 main{
@@ -32,6 +34,7 @@ main{
     width: 70%;
     box-shadow: 0 0 20px rgba(0, 0, 0, .1);
     border-radius: 10px;
+    position: relative;
 }
 
 .app button{
@@ -63,7 +66,7 @@ input{
     border: 1px solid aqua;
     margin: 8px 0px;
     font-size: 16px;
-        
+    width: 80%;
 }
 input:focus{
     outline: 2px solid aqua;
@@ -79,26 +82,93 @@ input:focus{
 
 #resultadoGrupos{
     display: flex;
+    flex-wrap: wrap;
     gap: 10px;
     font-size: 16px;
 }
 .gruposSeparado{
-    border: 1px solid aqua;
     padding: 12px;
     margin-top: 10px;
     background-color: #348ff9;
     color: white;
     font-weight: 400;
     font-size: 16px;
+    border-radius: 7px;
 }
 
 #totalGrupos{
     padding: 10px;
     margin-top: 10px;
     font-size: 16px;
-    font-weight: bolder;
-   
+    font-weight: bolder; 
 }
 .tituloGrupo{
     font-weight: bold;
+}
+
+#mensajeAlerta{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    color: red;
+    padding: 20px;
+    display: none;
+    border-radius: 5px;
+    border: 2px solid red;
+    text-align: center;
+}
+
+.imagen img{
+    width: 100%;
+    height: auto;
+}
+
+@media screen and (max-width: 1117px){
+    input{
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 980px){
+    main{
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 478px){
+    body{
+        font-size: 14px;
+    }
+
+    main{
+        padding: 25px;
+        gap: 10px;
+    }
+
+    input{
+        font-size: 11.5px;
+    }
+
+    .app button{
+        margin-top: 0;
+    }
+    #resultadoGrupos{
+        gap: 5px;
+        margin-top: 10px;
+    }
+
+    .gruposSeparado{
+        font-size: 12px;
+        margin-top: 0;
+    }
+
+    #totalGrupos{
+        font-size: 12px;
+    }
+
+    #mensajeAlerta{
+        padding: 10px ;
+    }
 }

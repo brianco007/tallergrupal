@@ -11,6 +11,8 @@
     <header></header>
     <main>
 
+        <span id="mensajeAlerta"></span>
+
         <section class="imagen">
             <img src="img/card-image-2.png" alt="Trabajo en grupo">
         </section>
@@ -23,7 +25,7 @@
             
             <div class="groups">
                 <label for="groupsNumber"> Número de Grupos: </label>
-                <input type="number" id="groupsNumber" min="1" value="1">
+                <input type="number" id="groupsNumber" min="1" placeholder="Ingrese cantidad de grupos" >
             </div>
     
             <button  class="btn" onclick="generarGrupos()">Generar Grupos</button>
