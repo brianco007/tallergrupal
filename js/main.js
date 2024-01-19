@@ -1,6 +1,7 @@
 "use strict";
 let groupsNumber = 1;
 const nombresArray = []; // Array para almacenar los nombres
+const totalGrupos = document.getElementById("totalGrupos");
 document.getElementById('groupsNumber').addEventListener('change', function (event) {
     groupsNumber = parseInt(event.target.value, 10);
 });
@@ -30,7 +31,7 @@ function mostrarNombres() {
         nombreElement.textContent = nombre;
         const borrarNombreElement = document.createElement('span');
         borrarNombreElement.className = 'borrar-nombre';
-        borrarNombreElement.textContent = '';
+        borrarNombreElement.textContent = ', ';
         borrarNombreElement.addEventListener('click', () => eliminarNombre(index));
         nombreContainer.appendChild(nombreElement);
         nombreContainer.appendChild(borrarNombreElement);
@@ -69,12 +70,14 @@ function generarGrupos() {
         container.innerHTML = ""; // Limpiar contenido previo
         for (let i = 0; i < groupsNumber; i++) {
             const grupoDiv = document.createElement("div");
-            grupoDiv.innerHTML = `<p>Grupo ${i + 1}: ${grupos[i].join(', ')}</p>`;
+            grupoDiv.className = "gruposSeparado";
+            grupoDiv.innerHTML = `<p><span class="tituloGrupo">GRUPO ${i + 1}</span>: ${grupos[i].join(', ')}</p>`;
             container.appendChild(grupoDiv);
         }
-        const cantidadGruposDiv = document.createElement("div");
-        cantidadGruposDiv.innerHTML = `<p>Cantidad de grupos: ${groupsNumber}</p>`;
-        container.appendChild(cantidadGruposDiv);
+        //const cantidadGruposDiv = document.createElement("div");
+        //cantidadGruposDiv.className="totalGrupos"
+        totalGrupos.innerHTML = `<p>Cantidad de grupos: ${groupsNumber}</p>`;
+        //container.appendChild(cantidadGruposDiv);
     }
     return grupos;
 }

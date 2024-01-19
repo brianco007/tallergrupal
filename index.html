@@ -17,19 +17,20 @@
 
         <section class="app">
             <div class="members">
-                <label for="memberName">Ingrese los nombres (presione Enter para agregar):</label>
-                <input type="text" id="memberName">
+                <label for="memberName">Ingrese un Nombre:</label>
+                <input type="text" id="memberName" placeholder="Presione Enter para agregar">
             </div>
             
             <div class="groups">
-                <label for="groupsNumber">Number of groups: </label>
+                <label for="groupsNumber"> Número de Grupos: </label>
                 <input type="number" id="groupsNumber" min="1" value="1">
             </div>
     
-            <button onclick="generarGrupos()">Generar Grupos</button>
+            <button  class="btn" onclick="generarGrupos()">Generar Grupos</button>
             
             <div id="nombresContainer"></div>
             <div id="resultadoGrupos"></div>
+            <div id="totalGrupos"></div>
     
             </div>
         </section>

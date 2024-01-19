@@ -1,6 +1,6 @@
 let groupsNumber: number = 1;
 const nombresArray: string[] = []; // Array para almacenar los nombres
-
+const totalGrupos=document.getElementById("totalGrupos") as HTMLElement;
 
 document.getElementById('groupsNumber').addEventListener('change', function(event) {
   groupsNumber = parseInt((event.target as HTMLInputElement).value, 10);
@@ -27,7 +27,7 @@ function agregarNombre() {
 function mostrarNombres() {
     const nombresContainer = document.getElementById('nombresContainer') as HTMLElement;
     nombresContainer.innerHTML = "";
-
+ 
     nombresArray.forEach((nombre, index) => {
         const nombreContainer = document.createElement('div');
         nombreContainer.className = 'nombre-container';
@@ -38,7 +38,7 @@ function mostrarNombres() {
 
         const borrarNombreElement = document.createElement('span');
         borrarNombreElement.className = 'borrar-nombre';
-        borrarNombreElement.textContent = '';
+        borrarNombreElement.textContent = ', ';
         borrarNombreElement.addEventListener('click', () => eliminarNombre(index));
 
         nombreContainer.appendChild(nombreElement);
@@ -86,13 +86,15 @@ function generarGrupos(): string[][] {
 
     for (let i = 0; i < groupsNumber; i++) {
       const grupoDiv = document.createElement("div");
-      grupoDiv.innerHTML = `<p>Grupo ${i + 1}: ${grupos[i].join(', ')}</p>`;
+      grupoDiv.className="gruposSeparado"
+      grupoDiv.innerHTML = `<p><span class="tituloGrupo">GRUPO ${i + 1}</span>: ${grupos[i].join(', ')}</p>`;
       container.appendChild(grupoDiv);
     }
 
-    const cantidadGruposDiv = document.createElement("div");
-    cantidadGruposDiv.innerHTML = `<p>Cantidad de grupos: ${groupsNumber}</p>`;
-    container.appendChild(cantidadGruposDiv);
+    //const cantidadGruposDiv = document.createElement("div");
+    //cantidadGruposDiv.className="totalGrupos"
+    totalGrupos.innerHTML = `<p>Cantidad de grupos: ${groupsNumber}</p>`;
+    //container.appendChild(cantidadGruposDiv);
   }
 
   return grupos;
