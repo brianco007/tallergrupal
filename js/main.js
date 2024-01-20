@@ -40,8 +40,7 @@ function agregarNombre() {
         }, 2000);
     }
 }
-function agregarGrupos() {
-}
+//function agregarGrupos() { }
 function mostrarNombres() {
     const nombresContainer = document.getElementById('nombresContainer');
     nombresContainer.innerHTML = "";
@@ -53,7 +52,7 @@ function mostrarNombres() {
         nombreElement.textContent = nombre;
         const borrarNombreElement = document.createElement('span');
         borrarNombreElement.className = 'borrar-nombre';
-        borrarNombreElement.textContent = ', ';
+        borrarNombreElement.textContent = ' ⛔';
         borrarNombreElement.addEventListener('click', () => eliminarNombre(index));
         nombreContainer.appendChild(nombreElement);
         nombreContainer.appendChild(borrarNombreElement);

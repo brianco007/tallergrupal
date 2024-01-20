@@ -17,7 +17,7 @@ body{
     background-image: url("../img/blob.png");
     background-repeat: no-repeat;
     background-position: center;
-    background-size: cover;
+    background-size:none;
     color: #1c1f26;
     font-size: 18px;
     font-family:'Roboto', sans-serif;
@@ -132,6 +132,11 @@ input:focus{
     background-color: #f08888;
 }
 
+.borrar-nombre{
+    cursor: pointer;
+    font-size: .7rem;
+}
+
 @media screen and (max-width: 1117px){
     input{
         width: 100%;
@@ -147,6 +152,7 @@ input:focus{
 @media screen and (max-width: 478px){
     body{
         font-size: 14px;
+        background-size: cover;
     }
 
     main{
@@ -164,6 +170,9 @@ input:focus{
     #resultadoGrupos{
         gap: 5px;
         margin-top: 10px;
+    }
+    .btn.reset{
+        margin-top: 5px;
     }
 
     .gruposSeparado{

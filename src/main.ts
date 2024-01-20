@@ -45,10 +45,7 @@ function agregarNombre() {
         }, 2000)
     }
 }
-
-function agregarGrupos() {
-
-}
+//function agregarGrupos() { }
 
 function mostrarNombres() {
     const nombresContainer = document.getElementById('nombresContainer') as HTMLElement;
@@ -64,7 +61,7 @@ function mostrarNombres() {
 
         const borrarNombreElement = document.createElement('span');
         borrarNombreElement.className = 'borrar-nombre';
-        borrarNombreElement.textContent = ', ';
+        borrarNombreElement.textContent = ' ⛔';
         borrarNombreElement.addEventListener('click', () => eliminarNombre(index));
 
         nombreContainer.appendChild(nombreElement);
