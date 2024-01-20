@@ -33,6 +33,10 @@ function agregarNombre() {
     }
 }
 
+function agregarGrupos() {
+
+}
+
 function mostrarNombres() {
     const nombresContainer = document.getElementById('nombresContainer') as HTMLElement;
     nombresContainer.innerHTML = "";
@@ -63,6 +67,9 @@ function eliminarNombre(index: number) {
 }
 
 function generarGrupos(): string[][] {
+
+    const groupsNumberGen = document.getElementById('groupsNumber') as HTMLInputElement;
+    groupsNumberGen.innerHTML = '';
 
   console.log(nombresArray)
   // Verificar si hay suficientes personas para formar los grupos
@@ -116,3 +123,36 @@ function generarGrupos(): string[][] {
   return grupos;
 
 }
+
+function resetearDatos() {
+  // Reiniciar el número de grupos a 1
+  groupsNumber = 1;
+  // Limpiar el array de nombres
+  nombresArray.length = 0;
+  // Limpiar los mensajes de alerta
+  mensajeAlerta.style.display = 'none';
+  mensajeAlerta.textContent = '';
+
+  // Reiniciar el contenido de los contenedores
+  const nombresContainer = document.getElementById('nombresContainer') as HTMLElement;
+  nombresContainer.innerHTML = '';
+
+  const container = document.getElementById('resultadoGrupos');
+  if (container) {
+      container.innerHTML = '';
+  }
+
+  // Reiniciar el valor del input de cantidad de grupos
+  const groupsNumberInput = document.getElementById('groupsNumber') as HTMLInputElement;
+  groupsNumberInput.value = '1';
+
+  // Reiniciar el input de nombre
+  const memberNameInput = document.getElementById('memberName') as HTMLInputElement;
+  memberNameInput.value = '';
+
+  // Reiniciar Total Grupos
+  const totalGruposInput = document.getElementById('totalGrupos') as HTMLInputElement;
+  totalGruposInput.innerHTML = '';
+}
+
+
