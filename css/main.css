@@ -125,6 +125,13 @@ input:focus{
     height: auto;
 }
 
+.btn.reset{
+    background-color: #ea5e5d;
+}
+.btn.reset:hover{
+    background-color: #f08888;
+}
+
 @media screen and (max-width: 1117px){
     input{
         width: 100%;
