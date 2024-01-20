@@ -17,12 +17,25 @@ document.getElementById('memberName').addEventListener('keyup', function(event) 
 function agregarNombre() {
     const memberNameInput = document.getElementById('memberName') as HTMLInputElement;
     const nombre = memberNameInput.value.trim();
+    const nombreValue = memberNameInput.value
 
-    if (nombre !== "") {
+    if (nombre !== "" ) {
+
+      // Array [(-1) = null o '', 0,1,2,3,4]
+      const estaPresente = nombresArray.indexOf(nombre) === -1
+      if (estaPresente){
         memberNameInput.value = "";
         nombresArray.push(nombre);
         mostrarNombres();
         console.log(nombresArray.length);
+      } else {
+        mensajeAlerta.style.display = 'block'
+        mensajeAlerta.textContent = "⚠️ El nombre ya existe."
+        setTimeout(()=>{
+            mensajeAlerta.style.display ='none'
+        }, 2000)
+      }
+        
     }
     if(nombre === ""){
         mensajeAlerta.style.display = 'block'
@@ -47,7 +60,7 @@ function mostrarNombres() {
 
         const nombreElement = document.createElement('span');
         nombreElement.className = 'nombre';
-        nombreElement.textContent = nombre.toUpperCase()[0] + nombre.substring(1).toLowerCase();
+        nombreElement.textContent = nombre
 
         const borrarNombreElement = document.createElement('span');
         borrarNombreElement.className = 'borrar-nombre';
