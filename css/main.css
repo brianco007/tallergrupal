@@ -80,6 +80,12 @@ input:focus{
        gap: 10px;
 }
 
+.nombre-container{
+    border: 1px dashed ;
+    padding: 2px 3px;
+    border-radius: 5px;
+}
+
 #resultadoGrupos{
     display: flex;
     flex-wrap: wrap;
@@ -136,6 +142,12 @@ input:focus{
     cursor: pointer;
     font-size: .7rem;
 }
+
+#totalParticipantes{
+    font-size: .8rem;
+}
+
+
 
 @media screen and (max-width: 1117px){
     input{

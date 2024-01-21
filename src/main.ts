@@ -2,7 +2,9 @@ let groupsNumber: number = 1;
 const nombresArray: string[] = []; // Array para almacenar los nombres
 const totalGrupos=document.getElementById("totalGrupos") as HTMLElement;
 const mensajeAlerta=document.getElementById("mensajeAlerta") as HTMLElement;
+const totalParticipantes=document.getElementById("totalParticipantes") as HTMLElement;
 
+totalParticipantes.textContent = `Total participantes: ${nombresArray.length}`
 
 document.getElementById('groupsNumber').addEventListener('change', function(event) {
   groupsNumber = parseInt((event.target as HTMLInputElement).value, 10);
@@ -27,7 +29,8 @@ function agregarNombre() {
         memberNameInput.value = "";
         nombresArray.push(nombre);
         mostrarNombres();
-        console.log(nombresArray.length);
+        totalParticipantes.textContent = `Total participantes: ${nombresArray.length}`
+
       } else {
         mensajeAlerta.style.display = 'block'
         mensajeAlerta.textContent = "⚠️ El nombre ya existe."
@@ -74,6 +77,7 @@ function mostrarNombres() {
 function eliminarNombre(index: number) {
     nombresArray.splice(index, 1);
     mostrarNombres();
+    totalParticipantes.textContent = `Total participantes: ${nombresArray.length}`
 }
 
 function generarGrupos(): string[][] {
@@ -89,48 +93,49 @@ function generarGrupos(): string[][] {
         setTimeout(()=>{
         mensajeAlerta.style.display ='none'
     }, 2000)
-  }
-
-//   resetear input de cantidad de grupos al hacer click PENDIENTE
-
-  // Copiar el array de nombres para no modificar el original
-  const nombresCopiados = [...nombresArray];
-
-  // Inicializar los grupos como arrays vacíos
-  const grupos: string[][] = [];
-    for (let i = 0; i < groupsNumber; i++) {
-        grupos.push([]);
-    }
-
-  // Distribuir aleatoriamente los nombres en los grupos
-  while (nombresCopiados.length > 0) {
-      for (let i = 0; i < groupsNumber; i++) {
-          // Obtener un nombre aleatorio
-          const nombreAleatorio = nombresCopiados.splice(Math.floor(Math.random() * nombresCopiados.length), 1)[0];
-          // Asignar el nombre al grupo actual
-          grupos[i].push(nombreAleatorio);
-      }
-  }
+    throw ""
+  } else {
+    // Copiar el array de nombres para no modificar el original
+    const nombresCopiados = [...nombresArray];
   
-  console.log(grupos)
-  const container = document.getElementById("resultadoGrupos");
-  if (container) {
-    container.innerHTML = ""; // Limpiar contenido previo
-
-    for (let i = 0; i < groupsNumber; i++) {
-      const grupoDiv = document.createElement("div");
-      grupoDiv.className="gruposSeparado"
-      grupoDiv.innerHTML = `<p><span class="tituloGrupo">GRUPO ${i + 1}</span>: ${grupos[i].join(', ')}</p>`;
-      container.appendChild(grupoDiv);
+    // Inicializar los grupos como arrays vacíos
+    const grupos: string[][] = [];
+      for (let i = 0; i < groupsNumber; i++) {
+          grupos.push([]);
+      }
+  
+    // Distribuir aleatoriamente los nombres en los grupos
+    while (nombresCopiados.length > 0) {
+        for (let i = 0; i < groupsNumber; i++) {
+            // Obtener un nombre aleatorio
+            const nombreAleatorio = nombresCopiados.splice(Math.floor(Math.random() * nombresCopiados.length), 1)[0];
+            // Asignar el nombre al grupo actual
+            grupos[i].push(nombreAleatorio);
+        }
     }
+    
+    const container = document.getElementById("resultadoGrupos");
+    if (container) {
+      container.innerHTML = ""; // Limpiar contenido previo
+  
+      for (let i = 0; i < groupsNumber; i++) {
+        const grupoDiv = document.createElement("div");
+        grupoDiv.className="gruposSeparado"
+        grupoDiv.innerHTML = `<p><span class="tituloGrupo">GRUPO ${i + 1}</span>: ${grupos[i].join(', ')}</p>`;
+        container.appendChild(grupoDiv);
+      }
+  
+      //const cantidadGruposDiv = document.createElement("div");
+      //cantidadGruposDiv.className="totalGrupos"
+      totalGrupos.innerHTML = `<p>Cantidad de grupos: ${groupsNumber}</p>`;
+      //container.appendChild(cantidadGruposDiv);
+    }
+  
+    return grupos;
 
-    //const cantidadGruposDiv = document.createElement("div");
-    //cantidadGruposDiv.className="totalGrupos"
-    totalGrupos.innerHTML = `<p>Cantidad de grupos: ${groupsNumber}</p>`;
-    //container.appendChild(cantidadGruposDiv);
   }
 
-  return grupos;
+
 
 }
 
@@ -163,6 +168,7 @@ function resetearDatos() {
   // Reiniciar Total Grupos
   const totalGruposInput = document.getElementById('totalGrupos') as HTMLInputElement;
   totalGruposInput.innerHTML = '';
-}
 
+  totalParticipantes.textContent = `Total participantes: ${nombresArray.length}`
+}
 
